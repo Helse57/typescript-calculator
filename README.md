@@ -2,9 +2,10 @@
 
 ## Automate de vérification - 06/02/23
 
-### src/app/Automate.ts
-
+Schema de l'automate de vérification
 ![Schema de l'Automate](./img/automate.png)
+
+### src/app/Automate.ts
 
 > let result = Automate.valideCalcul("1+1=2"); : true
 
