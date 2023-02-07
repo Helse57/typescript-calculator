@@ -74,3 +74,5 @@ export class Automate {
 let result = Automate.valideCalcul("1+1=2");
 
 console.log(result);
+
+// rajout des espaces
