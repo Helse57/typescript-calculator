@@ -13,6 +13,8 @@ export class Automate {
         return etat_b(input, index + 1);
       } else if (input[index] === ".") {
         return etat_d(input, index + 1);
+      } else if (input[index] === " ") {
+        return etat_f(input, index + 1);
       }
       return [index, "numérique attendu"];
     }
@@ -35,11 +37,13 @@ export class Automate {
         input[index] === "*" ||
         input[index] === "/"
       ) {
-        return etat_a(input, index + 1);
+        return etat_f(input, index + 1);
       } else if (input[index] === ".") {
         return etat_e(input, index + 1);
       } else if (input[index] === "=") {
         return true;
+      } else if (input[index] === " ") {
+        return etat_f(input, index + 1);
       }
       return [index, "numérique ou opérateur attendu"];
     }
@@ -47,6 +51,8 @@ export class Automate {
     function etat_d(input: string, index: number): true | [number, string] {
       if (estChiffre(input[index])) {
         return etat_e(input, index + 1);
+      } else if (input[index] === " ") {
+        return etat_f(input, index + 1);
       }
       return [index, "numérique attendu"];
     }
@@ -60,19 +66,36 @@ export class Automate {
         input[index] === "*" ||
         input[index] === "/"
       ) {
-        return etat_a(input, index + 1);
+        return etat_f(input, index + 1);
       } else if (input[index] === "=") {
         return true;
+      } else if (input[index] === " ") {
+        return etat_f(input, index + 1);
       }
       return [index, "numérique ou opérateur attendu"];
     }
 
+    function etat_f(input: string, index: number): true | [number, string] {
+      if (
+        input[index] === "+" ||
+        input[index] === "-" ||
+        input[index] === "*" ||
+        input[index] === "/"
+      ) {
+        return etat_a(input, index + 1);
+      } else if (input[index] === "=") {
+        return true;
+      } else if (input[index] === " ") {
+        return etat_f(input, index + 1);
+      } else if (estChiffre(input[index])) {
+        return etat_f(input, index + 1);
+      }
+      return [index, "opérateur ou égal attendu"];
+    }
     return etat_a(calcul, index);
   }
 }
 
-let result = Automate.valideCalcul("1+1=2");
+let result = Automate.valideCalcul("1 + 1+1 = 2");
 
 console.log(result);
-
-// rajout des espaces
