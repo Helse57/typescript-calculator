@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug automate",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\src\\app\\Automate.ts",
+      "runtimeArgs": ["-r", "ts-node/register", "-r", "tsconfig-paths/register"],
+      "console": "integratedTerminal",
+      "outFiles": ["${workspaceFolder}/**/*.js"]
+    }
+  ]
+}

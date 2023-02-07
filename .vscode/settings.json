@@ -1,0 +1,12 @@
+{  
+  "code-runner.executorMap": {
+    "javascript": "node",
+    "typescript": "npx ts-node"
+  },
+  "code-runner.runInTerminal": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "prettier.printWidth": 100
+}
