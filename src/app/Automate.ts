@@ -86,13 +86,13 @@ export class Automate {
       } else if (input[index] === "=") {
         return true;
       }
-      return [index, "test"];
+      return [index, "espace ou opérateur attendu"];
     }
 
     return etat_a(calcul, index);
   }
 }
 
-let result = Automate.valideCalcul("  1 + 1 = 1");
+let result = Automate.valideCalcul("1 a+1 a= 2");
 
 console.log(result);

@@ -120,8 +120,24 @@ test(".1a | état e, index 2", () => {
   expect(Automate.valideCalcul(".1a")).toStrictEqual([2, "numérique ou opérateur attendu"]);
 });
 
-// Tests avec 2 operateurs
+// Tests avec des espaces
 
-test("1 + 1 = 1", () => {
-  expect(Automate.valideCalcul("1 + 1 = 1")).toBe(true);
+test("1 +1 = 2", () => {
+  expect(Automate.valideCalcul("1 +1 = 2")).toBe(true);
+});
+
+test(" 1 + 1 = 2", () => {
+  expect(Automate.valideCalcul(" 1 + 1 = 2")).toBe(true);
+});
+
+test(" .1 + .1 = 2", () => {
+  expect(Automate.valideCalcul(" .1 + .1 = 2")).toBe(true);
+});
+
+test("1  +1  = 2", () => {
+  expect(Automate.valideCalcul("1  +1  = 2")).toBe(true);
+});
+
+test("1 a+1 a= 2", () => {
+  expect(Automate.valideCalcul("1 a+1 a= 2")).toStrictEqual([2, "espace ou opérateur attendu"]);
 });
