@@ -1,4 +1,4 @@
-# **Typescript Calculator**
+# **Typescript Calculator | THIEBAUT Hugo**
 
 ## Automate de vérification - 06/02/23
 
